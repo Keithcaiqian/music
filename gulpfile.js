@@ -31,10 +31,6 @@ function image() {
         .pipe(imagemin())
         .pipe(gulp.dest(folder.dist + 'image/'))
 }
-function source() {
-    return gulp.src('source/*')
-        .pipe(gulp.dest(folder.dist + 'source/'))
-}
 function css() {
     var page = gulp.src(folder.src + 'css/*')
         .pipe(connect.reload())
@@ -67,5 +63,5 @@ gulp.task('watch', function () {
     gulp.watch(folder.src + 'js/*', gulp.parallel(js))
 })
 
-exports.default = gulp.parallel(html, css, js, image,source, 'connect', 'watch');
+exports.default = gulp.parallel(html, css, js, image, 'connect', 'watch');
 
