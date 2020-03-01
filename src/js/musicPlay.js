@@ -4,7 +4,11 @@
         this.status = 'pause'
     } 
     MusicPlay.prototype.play = function(){
-        this.audio.play()
+        this.audio.play().then(() => {
+            console.log(1)
+        }).catch(()=> {
+            console.log(2)
+        })
         this.status = 'play';
     }
     MusicPlay.prototype.pause = function(){
