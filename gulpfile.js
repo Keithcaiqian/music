@@ -54,7 +54,8 @@ function js() {
 }
 gulp.task('connect', function () {
     connect.server({
-        livereload: true
+        livereload: true,
+        port:'8080'
     });
 });
 gulp.task('watch', function () {
