@@ -25,10 +25,15 @@ function html() {
     return page
 }
 
+
 function image() {
     return gulp.src(folder.src + 'image/*')
         .pipe(imagemin())
         .pipe(gulp.dest(folder.dist + 'image/'))
+}
+function source() {
+    return gulp.src('source/*')
+        .pipe(gulp.dest(folder.dist + 'source/'))
 }
 function css() {
     var page = gulp.src(folder.src + 'css/*')
@@ -62,5 +67,5 @@ gulp.task('watch', function () {
     gulp.watch(folder.src + 'js/*', gulp.parallel(js))
 })
 
-exports.default = gulp.parallel(html, css, js, image, 'connect', 'watch');
+exports.default = gulp.parallel(html, css, js, image,source, 'connect', 'watch');
 
